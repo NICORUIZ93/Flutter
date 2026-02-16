@@ -13,6 +13,14 @@ concurrency:
 jobs:
   analyze-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - wingets_app
+          - introduccion
+          - toktik
+          - yes_no_app
 
     steps:
       - name: Checkout
@@ -28,13 +36,18 @@ jobs:
         run: flutter --version
 
       - name: Install Dependencies
-        working-directory: wingets_app
+        working-directory: ${{ matrix.project }}
         run: flutter pub get
 
       - name: Analyze
-        working-directory: wingets_app
+        working-directory: ${{ matrix.project }}
         run: flutter analyze
 
       - name: Run Tests
-        working-directory: wingets_app
-        run: flutter test
+        working-directory: ${{ matrix.project }}
+        run: |
+          if [ -d "test" ]; then
+            flutter test
+          else
+            echo "No test directory for ${{ matrix.project }}. Skipping tests."
+          fi

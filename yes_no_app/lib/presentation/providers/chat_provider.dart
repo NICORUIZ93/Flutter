@@ -6,7 +6,7 @@ import 'package:yes_no_app/config/helpers/get_yes_no_answer.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
 
 class ChatProvider extends ChangeNotifier {
-  final getYesNoAnswer = GetYesNoAnswer();
+  final GetYesNoAnswer getYesNoAnswer;
 
   List<Message> messagesList = [
     Message(
@@ -33,7 +33,8 @@ class ChatProvider extends ChangeNotifier {
     ),
   ];
 
-  ChatProvider({bool loadFromStorage = true}) {
+  ChatProvider({bool loadFromStorage = true, GetYesNoAnswer? yesNoAnswer})
+    : getYesNoAnswer = yesNoAnswer ?? GetYesNoAnswer() {
     if (loadFromStorage) _loadMessages();
   }
 
