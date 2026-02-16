@@ -7,10 +7,9 @@ class ProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: Text('Hola')),
-      body: ProgressView(),
+      appBar: AppBar(title: const Text('Indicadores de progreso')),
+      body: const ProgressView(),
     );
   }
 }
@@ -23,18 +22,18 @@ class ProgressView extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 20),
-          Text('Progress indicator'),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
+          const Text('Progreso indeterminado'),
+          const SizedBox(height: 20),
           CircularProgressIndicator(
             strokeWidth: 4,
             backgroundColor: Colors.black45,
           ),
 
-          SizedBox(height: 20),
-          Text('Progress controlador'),
-          SizedBox(height: 20),
-          _ControllerProgressIndicator(),
+          const SizedBox(height: 20),
+          const Text('Progreso controlado'),
+          const SizedBox(height: 20),
+          const _ControllerProgressIndicator(),
         ],
       ),
     );
@@ -46,14 +45,14 @@ class _ControllerProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: Stream.periodic(Duration(milliseconds: 300), (value) {
+    return StreamBuilder<double>(
+      stream: Stream.periodic(const Duration(milliseconds: 300), (value) {
         return (value * 2) / 100;
-      }).takeWhile((element) => element < 100),
+      }).takeWhile((element) => element <= 1),
       builder: (context, snapshot) {
-        final progressValue = snapshot.data ?? 0;
+        final progressValue = snapshot.data ?? 0.0;
         return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -62,7 +61,7 @@ class _ControllerProgressIndicator extends StatelessWidget {
                 backgroundColor: Colors.black12,
                 value: progressValue,
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(child: LinearProgressIndicator(value: progressValue)),
             ],
           ),

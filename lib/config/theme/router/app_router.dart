@@ -1,5 +1,8 @@
 import 'package:go_router/go_router.dart';
+import 'package:wingets_app/presentation/screens/counter/counter_screen.dart';
 import 'package:wingets_app/presentation/screens/screens.dart';
+import 'package:wingets_app/presentation/screens/theme_change/theme_change_screen.dart';
+import 'package:wingets_app/menu/menu_items.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
@@ -11,43 +14,53 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       name: ButtonsScreen.name,
-      path: '/buttons',
+      path: AppRoutes.buttons,
       builder: (context, state) => ButtonsScreen(),
     ),
     GoRoute(
       name: CardsScreen.name,
-      path: '/cards',
+      path: AppRoutes.cards,
       builder: (context, state) => CardsScreen(),
     ),
     GoRoute(
       name: ProgressScreen.name,
-      path: '/progress',
+      path: AppRoutes.progress,
       builder: (context, state) => ProgressScreen(),
     ),
     GoRoute(
       name: AppTutorialScreen.name,
-      path: '/tutorial',
+      path: AppRoutes.tutorial,
       builder: (context, state) => AppTutorialScreen(),
     ),
     GoRoute(
       name: InfiniteScrollScreen.name,
-      path: '/infinite',
+      path: AppRoutes.infinite,
       builder: (context, state) => InfiniteScrollScreen(),
     ),
     GoRoute(
       name: SnackbarScreen.name,
-      path: '/snackbar',
+      path: AppRoutes.snackbar,
       builder: (context, state) => SnackbarScreen(),
     ),
     GoRoute(
       name: UiControlsScreen.name,
-      path: '/ui-controls',
+      path: AppRoutes.uiControls,
       builder: (context, state) => UiControlsScreen(),
     ),
     GoRoute(
       name: AnimatedScreen.name,
-      path: '/animated',
+      path: AppRoutes.animated,
       builder: (context, state) => AnimatedScreen(),
+    ),
+    GoRoute(
+      name: CounterScreen.name,
+      path: AppRoutes.counter,
+      builder: (context, state) => CounterScreen(),
+    ),
+    GoRoute(
+      name: ThemeChangeScreen.name,
+      path: AppRoutes.themeChange,
+      builder: (context, state) => ThemeChangeScreen(),
     ),
   ],
 );

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class AnimatedScreen extends StatefulWidget {
-  static const String name = 'animated_Screen';
+  static const String name = 'animated_screen';
 
   const AnimatedScreen({super.key});
 
@@ -12,14 +12,14 @@ class AnimatedScreen extends StatefulWidget {
 }
 
 class _AnimatedScreenState extends State<AnimatedScreen> {
-  double widht = 50;
+  double width = 50;
   double height = 50;
   Color color = Colors.black12;
   double borderRadius = 20.0;
 
   void changeShape() {
     final random = Random();
-    widht = random.nextInt(200) + 50;
+    width = random.nextInt(200) + 50;
     height = random.nextInt(300) + 50;
     color = Color.fromRGBO(
       random.nextInt(255),
@@ -40,7 +40,7 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
         child: AnimatedContainer(
           duration: Duration(milliseconds: 400),
           curve: Curves.easeIn,
-          width: widht < 0 ? 0 : widht,
+          width: width < 0 ? 0 : width,
           height: height < 0 ? 0 : height,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),

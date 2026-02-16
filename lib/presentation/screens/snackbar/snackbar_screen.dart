@@ -24,7 +24,7 @@ class SnackbarScreen extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: Text('¿Estas seguro?'),
+        title: Text('Estas seguro?'),
         content: Text(
           'Et deserunt consectetur ut sit excepteur excepteur quis deserunt aliquip. Eiusmod velit ex quis in proident sunt. Ut enim esse eu incididunt excepteur irure enim nulla nostrud irure minim id. Id ullamco laboris ipsum quis fugiat reprehenderit commodo ea aliquip. Nulla sit qui proident nulla deserunt culpa. Lorem proident aliqua laborum elit magna minim deserunt esse consectetur pariatur aute deserunt. Et sit anim laborum qui ut duis officia occaecat.',
         ),
@@ -82,3 +82,4 @@ class SnackbarScreen extends StatelessWidget {
     );
   }
 }
+

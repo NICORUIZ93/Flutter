@@ -12,16 +12,18 @@ final List<Color> colors = [
 
 class AppTheme {
   final int selectedColor;
+  final bool isDarkMode;
 
-  AppTheme({this.selectedColor = 0})
+  AppTheme({this.selectedColor = 0, this.isDarkMode = false})
     : assert(
         selectedColor >= 0 && selectedColor < colors.length,
-        'Seleccione un colo y un numero que existan dentro de las opciones',
+        'Selecciona un color valido',
       );
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
+    brightness: isDarkMode ? Brightness.dark : Brightness.light,
     colorSchemeSeed: colors[selectedColor],
-    appBarTheme: AppBarTheme(centerTitle: true),
+    appBarTheme: const AppBarTheme(centerTitle: true),
   );
 }
