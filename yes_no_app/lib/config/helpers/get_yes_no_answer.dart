@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
-import 'package:yes_no_app/infrastructure/model/yes_no_Model.dart';
+import 'package:yes_no_app/infrastructure/model/yes_no_model.dart';
 
 class GetYesNoAnswer {
   final _dio = Dio();
