@@ -28,10 +28,13 @@ jobs:
         run: flutter --version
 
       - name: Install Dependencies
+        working-directory: wingets_app
         run: flutter pub get
 
       - name: Analyze
+        working-directory: wingets_app
         run: flutter analyze
 
       - name: Run Tests
+        working-directory: wingets_app
         run: flutter test
